@@ -1,0 +1,60 @@
+<br><br><br><br>
+
+<app-navbar></app-navbar>
+
+<div class="container" >
+  <div [hidden]="editing">
+    <div class="hero">
+      <div class="photoURL" [ngStyle]="{'background-image': 'url(' + user.photoUrl + ')'}">
+        <input type="file" accept="image/*" name="file" id="file" class="uploadPhoto" (change)="uploadPhotoURL($event)">
+        <label for="file">Change Photo</label>
+      </div>
+      <div class="hero-text">
+        <h1>{{user.name}}</h1>
+        <p>{{user.email}}</p>
+        <br><br>
+        <button mat-button (click)="editing=true" *ngIf="!editing">Edit Profile</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Add Photo</h3>
+      <app-upload [path]="path" [meta]="meta" [uploadType]="uploadType"></app-upload>
+    </div>
+
+  </div>
+
+  <div [hidden]="!editing">
+    <div class="card">
+      <div class="form-group">
+        <input name="name" type="text"  placeholder="Update your name" [(ngModel)]="user.name">
+        <button class="btn btn-success"  (click)="updateProfile()">save</button>
+
+      </div>
+    </div>
+
+    <div class="form-group">
+
+        <input type="email" placeholder="Update your email" [(ngModel)]="user.email">
+        <button class="btn btn-primary" type="submit" matSuffix (click)="updateEmail()">save</button>
+
+
+    </div>
+
+<div class="container">
+      <form (ngSubmit)="updateUser()">
+        <div class="form-group">
+          <input type="text" class="form-control"  placeholder="Update you website" name="website" [(ngModel)]="user.website">
+        </div>
+        <div class="form-group">
+          <input  type="text" class="form-control"  placeholder="Update you location" name="location" [(ngModel)]="user.location">
+        </div>
+        <div class="form-group">
+          <textarea  type="text" class="form-control" placeholder="Update you bio" name="bio" [(ngModel)]="user.bio"></textarea>
+        </div>
+        <button mat-raised-button type="submit" color="accent">Save</button>
+        <button mat-button (click)="editing=false" *ngIf="editing">Cancel</button>
+      </form>
+    </div>
+
+
+</div>

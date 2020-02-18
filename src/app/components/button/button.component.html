@@ -1,0 +1,72 @@
+
+<div class="fab-container mb-5" >
+
+      <div class="fab-icon-holder fab" >
+        <i class="fas fa fa-5x fa-plus"></i>
+
+      </div>
+      <ul class=" box-on fab-options" id="box">
+
+            <li *ngIf="!isLogged">
+                <span class="fab-label">Criar conta</span>
+                <a  routerLink="/criar-conta">
+
+                    <div class="fab-icon-holder">
+
+                    <i class="fa fa-5x fa-user-plus"></i>
+                    </div>
+
+                </a>
+            </li>
+
+            <li *ngIf="!isLogged">
+                <span class="fab-label">Entrar</span>
+                <a routerLink="/entrar">
+
+                    <div class="fab-icon-holder">
+
+                        <i class="fa fa-5x fa-toggle-on"></i>
+                    </div>
+
+                </a>
+            </li>
+            <li *ngIf="isLogged">
+                <span class="fab-label">Meus Posts</span>
+                <a routerLink="/posts">
+
+                    <div class="fab-icon-holder">
+
+                        <i class="fa fa-5x fa-comments"></i>
+                    </div>
+
+                </a>
+            </li>
+        <li *ngIf="isLogged">
+            <span class="fab-label">Sair</span>
+            <a  (click)="onLogout()">
+              <div class="fab-icon-holder" >
+              <i class="fa  fa-power-off"></i>
+              </div>
+            </a>
+        </li>
+
+
+
+        <li>
+            <span class="fab-label">Serviços</span>
+            <a routerLink="/servicos">
+
+                <div class="fab-icon-holder">
+
+                    <i class="fa  fa-briefcase"></i>
+                </div>
+
+            </a>
+        </li>
+
+
+
+      </ul>
+  </div>
+
+

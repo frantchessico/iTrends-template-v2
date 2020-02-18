@@ -1,0 +1,80 @@
+<router-outlet></router-outlet>
+
+<section class="row mt-5 my-5 justify-content-center">
+
+        <div class="col-md-10 col-md-offset-2">
+
+  <div class="my-5 table-responsive fresh-table full-color-red table-borderless table-striped text-white ">
+    <br><br>
+   <div class="row justify-content-center">
+
+
+      <div class="col-lg-6">
+        <div class="input-group pull-right search padding-320">
+          <input class="form-control search-input " type="text" placeholder="Estou buscando por ..." aria-label="Search"
+            name="filterPosts" [(ngModel)]="filterPosts">
+          <div class="input-group-append">
+            <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
+                aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </div>
+
+   </div>
+    <table class="table table-hover my-5  container "  id="fresh-table">
+      <thead class="black white-text">
+        <tr>
+          <!-- <th scope="col">#</th> -->
+          <th scope="col">Titulo</th>
+          <th scope="col" class="dispay-none">Situação do anúncio</th>
+          <th scope="col" class="dispay-none">Email Público</th>
+          <th scope="col" class="dispay-none">Preço</th>
+          <th scope="col" class="dispay-none">Telefone Público</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let book of books | filter:filterPosts | orderBy: order:'desc'; index as i">
+        <tr  *ngIf="book.userUid == userUid">
+
+          <td class="text-white "><strong>{{book.titulo}}</strong></td>
+          <td class="text-white dispay-none"><strong>{{book.situacao}}</strong></td>
+          <td class="text-white dispay-none"><strong>{{book.email}}</strong></td>
+          <td class="text-white dispay-none"><strong>{{book.precio}}</strong></td>
+           <td class="text-white dispay-none"><strong>{{book.telefone}}</strong></td>
+          <td *ngIf="book.userUid == userUid">
+            <button class="btn btn-primary btn-320" data-toggle="modal" data-target="#modalBook" (click)="onPreUpdateBook(book)" style="background-color: #6351ce !important;">Atualizar</button>
+          </td>
+          <ng-template #noOwner>
+            <td>
+              <button class="btn btn-secondary btn-320" disabled="true">Atualizar</button>
+            </td>
+          </ng-template>
+          <td *ngIf="isAdmin == true; else noAdmin">
+            <button class="btn btn-danger btn-320" (click)="onDeleteBook(book.id)">Apagar</button>
+          </td>
+          <ng-template #noAdmin>
+            <td>
+              <button class="btn btn-danger btn-320" (click)="onDeleteBook(book.id)">Apagar</button>
+            </td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+</section>
+<div class="row justify-content-center">
+  <div class="fab-container">
+
+    <div class="fab-icon-holder fab bg-success" data-toggle="modal" data-target="#modalBook">
+      <i class="fa fa-5x fa-plus"></i>
+    </div>
+
+  </div>
+</div>
+
+<app-modal [userUid]="userUid"></app-modal>

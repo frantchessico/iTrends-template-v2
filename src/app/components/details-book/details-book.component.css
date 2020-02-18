@@ -1,0 +1,84 @@
+
+
+
+
+.viewMy {
+    max-height: 30em !important;
+    height: 30em !important;
+
+    justify-content: center;
+    justify-items: center;
+    justify-self: center
+}
+
+
+
+@media (max-width: 320px) {
+    .viewMy {
+
+        max-height: 100% !important;
+        height: 100% !important;
+    }
+
+  }
+
+
+  @media (max-width: 375px) {
+
+    .viewMy {
+
+
+        max-height: 100% !important;
+        height: 100% !important;
+    }
+}
+
+
+  @media (max-width: 420px) {
+
+    .viewMy {
+
+        max-height: 100% !important;
+        height: 100% !important;
+
+    }
+}
+
+
+@media (max-width: 475px) {
+
+    .viewMy {
+
+        max-height: 100% !important;
+        height: 100% !important;
+
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .viewMy {
+
+        max-height: 100% !important;
+        height: 100% !important;
+
+    }
+}
+
+
+.zooom:hover {
+    transition: 2s;
+   transform: scale(2.5) !important;
+   background: #333;
+
+}
+
+.zooom {
+    transition: 1s;
+}
+
+
+ul > li {
+  list-style-type: none;
+}

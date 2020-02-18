@@ -1,0 +1,49 @@
+
+<div class="rounded-bottom  lighten-3 text-center pt-3">
+    <ul class="list-unstyled list-inline font-small">
+
+      <li class="list-inline-item pr-2">
+          <button class="color" mat-icon-button color="warn">
+              <i id="btnStar" class="far fa-star"></i>
+          </button>
+      </li>
+
+
+      <li class="list-inline-item pr-2">
+          <button class="color" mat-icon-button color="warn">
+              <i class="far fa-comments"></i>
+          </button><span *ngFor="let like of Likes"> {{like.createdAt | date}}</span>
+      </li>
+
+
+      <li class="list-inline-item pr-2">
+        <button class="color" mat-icon-button color="warn">
+            <i class="fas fa-eye"></i>
+        </button><span> {{view}}</span>
+    </li>
+
+
+      <li class="list-inline-item pr-2">
+
+              <button value="liked" name="likes"   class="color" mat-icon-button color="warn" id="mylike">
+                        <i id="btnLike" class="far fa-heart" ></i>
+                    <input type="hidden" name="id" [(ngModel)]="this.setLike.selectedLike.uid">
+                    <input type="hidden" name="userUid" [value]="userUid">
+                    <input type="hidden" name="liked" [(ngModel)]="this.setLike.selectedLike.liked">
+              </button>
+             <!-- <span *ngFor="let like of likes | async">
+              <span *ngIf="like.idBok === bookss.id">
+                <span id="anime">{{like.id.length}}</span>
+              </span>
+             </span> -->
+
+             <span>
+              <span >
+                <span id="anime">{{like}}</span>
+              </span>
+             </span>
+
+      </li>
+
+    </ul>
+  </div>

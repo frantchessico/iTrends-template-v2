@@ -1,0 +1,206 @@
+<ngx-spinner
+bdColor="#4a148c"
+size="large"
+color="#fff"
+type="ball-scale-multiple"
+([fullScreen]) = true
+>
+
+</ngx-spinner>
+
+
+
+ <section id="book">
+
+
+
+  <div >
+    <div class="row">
+
+
+      <div class="col-lg-5 col-sm-6 col-md-7 mx-auto my-3">
+
+
+<div id="carousel-thumb" class="carousel slide  carousel-thumbnails" data-ride="carousel">
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active zooom">
+      <img class="d-block w-100" src="{{bookss.urlImageVerso1}}"
+        alt="First slide">
+    </div>
+    <div class="carousel-item zooom">
+      <img class="d-block w-100" src="{{bookss.urlImageVerso2}}"
+        alt="Second slide">
+    </div>
+    <div class="carousel-item zooom">
+      <img class="d-block w-100" src="{{bookss.urlImageVerso3}}"
+        alt="Third slide">
+    </div>
+  </div>
+  <!--/.Slides-->
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#carousel-thumb" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-thumb" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+<ol class="carousel-indicators">
+  <li data-target="#carousel-thumb" data-slide-to="0" class="active">
+    <img src="{{bookss.urlImageVerso1}}" width="500">
+  </li>
+  <li data-target="#carousel-thumb" data-slide-to="1">
+    <img src="{{bookss.urlImageVerso2}}" width="500">
+  </li>
+  <li data-target="#carousel-thumb" data-slide-to="2">
+    <img src="{{bookss.urlImageVerso3}}" width="500">
+  </li>
+</ol>
+
+</div>
+
+      </div>
+
+
+      <div class="col-xs-12 col-sm-6 col-md-7 mx-auto">
+        <!-- Section: Magazine v.2 -->
+        <section class="magazine-section">
+
+
+          <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-lg-6 col-md-12 card">
+
+              <!-- Featured news -->
+              <div class="single-news mb-lg-0 mb-4">
+
+                <!-- Image -->
+                <div class="view overlay rounded z-depth-1-half mb-4">
+                  <img class="img-fluid " src="{{bookss.urlImage}}" alt="Sample image">
+                  <a>
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+
+                <!-- Data -->
+                <div class="card-body">
+                    <div class="card-footer text-muted text-center">
+                        <app-preference-user></app-preference-user>
+                    </div>
+                <div class="news-data d-flex justify-content-between">
+                  <a href="#!" class="deep-orange-text" data-toggle="modal" data-target="#partilharModal">
+                    <h6 class="font-weight-bold"><i class="fa fa-2x fa-share-alt-square pr-2"></i>Partilhar</h6>
+                  </a>
+                  <p class="font-weight-bold dark-grey-text"><i class="fas fa-clock-o pr-2"></i>{{ bookss.createdAt | date }}</p>
+                </div>
+
+
+                <h3 class="font-weight-bold dark-grey-text mb-3"><a>{{bookss.titulo}}</a></h3>
+                <p class="dark-grey-text ">{{bookss.descripcion}}</p>
+                <ul>
+                  <li class="dark-grey-text "><span class="text-success"><i class="fas fa-check pr-3"></i> </span>   <strong class="blue-text">Telefone: </strong>{{bookss.telefone}} </li>
+                <li class="dark-grey-text "><span class="text-success"><i class="fas fa-check pr-3"></i> </span>   <strong class="blue-text">Email: </strong>{{bookss.email}}</li>
+                <li class="dark-grey-text "><span class="text-success"><i class="fas fa-check pr-3"></i> </span>   <strong class="blue-text">Província: </strong>{{bookss.provincia}}</li>
+                <li class="dark-grey-text "><span class="text-success"><i class="fas fa-check pr-3"></i> </span>   <strong class="blue-text">Cidade: </strong>{{bookss.cidade}}</li>
+                <li class="dark-grey-text "><span class="text-success"><i class="fas fa-check pr-3"></i> </span>   <strong class="blue-text">Preço: </strong>{{bookss.precio}}</li>
+                <li class="dark-grey-text "><span class="text-success"><i class="fas fa-check pr-3"></i> </span>   <strong class="blue-text">Categoria: </strong>{{bookss.categorias}}</li>
+                <li class="dark-grey-text "><span class="text-success"><i class="fas fa-check pr-3"></i> </span>   <strong class="blue-text">Situção: </strong>{{bookss.situacao}}</li>
+
+
+                </ul>
+                </div>
+
+
+              </div>
+              <!-- Featured news -->
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-lg-6 col-md-12" >
+
+
+              <div class="single-news" *ngFor="let book of books">
+
+                <!-- Grid row -->
+                <div class="row">
+
+                  <!-- Grid column -->
+                  <div class="col-md-3">
+
+                    <!--Image-->
+                    <div class="view overlay rounded z-depth-1 mb-4">
+                      <img class="img-fluid" src="{{book.urlImage}}" alt="Sample image">
+                      <a>
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-9">
+
+                    <!-- Excerpt -->
+                    <p class="font-weight-bold dark-grey-text">{{ book.createdAt | date }}</p>
+                    <div class="d-flex justify-content-between">
+                      <div class="col-11 text-truncate pl-0 mb-3">
+                        <a routerLink="/detalhe/{{book.id}}"><strong class="blue-text">{{book.titulo}} <i class="fa fa-1x fa-smile-o"></i></strong></a>
+                      </div>
+
+                    </div>
+
+                  </div>
+                  <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+              </div>
+
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!-- Grid row -->
+
+        </section>
+        <!-- Section: Magazine v.2 -->
+        </div>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="modal fade" id="partilharModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Copiar o link</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <span class="deep-orange-text">
+          <i class="fa fa-2x fa-share-alt-square pr-2 prefix"></i>
+
+          <input type="text" id="form3" class="form-control validate" value="https://nabolada.com/detalhes/{{bookss.id}}">
+          </span>
+        </div>
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

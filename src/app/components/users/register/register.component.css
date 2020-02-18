@@ -1,0 +1,108 @@
+.form-control.login-user {
+  border: 0px solid #fff !important;
+}
+.btn-social{
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.btn-facebook{
+  background: #4267b2;
+  height: 60px;
+  width: 60px;
+  border-radius: 2em;
+  border: transparent;
+  outline: none;
+  box-shadow: 0px 0 30px rgba(0,0,0,0.5);
+  color: #fff;
+}
+
+.btn-google{
+  background: #dd4b39;
+  height: 60px;
+  width: 60px;
+  border-radius: 2em;
+  border: transparent;
+  outline: none;
+  box-shadow: 0px 0 30px rgba(0,0,0,0.5);
+  color: #fff;
+}
+
+.btn-facebook span {
+  font: 2;
+  font-size: 2em;
+  font-weight: bold;
+ 
+}
+
+
+.btn-google span {
+  font: 2;
+  font-size: 2em;
+  font-weight: bold;
+  
+}
+/* .s-icon {
+box-shadow: 0px 0 30px rgba(0,0,0,0.5);
+} */
+
+.input-group {
+  color: #333;
+  float: left;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  margin: 0 20px 10px;
+  width: 200px;
+}
+
+label {
+  display: block;
+  margin-bottom: 2px;
+}
+
+input[type=text] {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 13px;
+  height: 33px;
+  margin: 0;
+  padding: 0 0 0 15px;
+  width: 100%;
+}
+
+.error-message {
+  color: #cc0033;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 15px;
+  margin: 5px 0 0;
+}
+
+.input-group .error-message {
+  display: none;
+}
+
+
+/* Error Styling */
+
+.error label {
+  color: #cc0033;
+}
+
+.error input[type=text] {
+  background-color: #fce4e4;
+  border: 1px solid #cc0033;
+  outline: none;
+}
+
+.error .error-message {
+  display: inline-block;
+}
+

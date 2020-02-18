@@ -1,0 +1,138 @@
+
+<section id="register">
+  <div class="container my-5">
+    <app-icon></app-icon>
+    <div class="row my-5">
+        <div class="col-lg-6 col-sm-6 col-md-4 mx-auto">
+            <app-argument></app-argument>
+        </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+        <div class="card_register">
+          <div class="card">
+
+            <div class="card-body text-center">
+
+
+
+                <div class="form-group ">
+                  <button class=" btn-facebook mr-2" (click)="onLoginFacebook()">
+                    <span class="s-icon fa fa-facebook"></span>
+                  </button>
+                  <button class="btn-google" (click)="onLoginGoogle()">
+                    <span class="s-icon fa fa-google"></span>
+
+                  </button>
+                </div>
+
+
+
+              <form #formRegister="ngForm" (ngSubmit)="onAddUser()" [formGroup]="contactForm">
+<div class="form-row">
+  <div class="md-form col-md-6">
+    <input type="email" name="firstName" class="form-control" [(ngModel)]="firstName" required minlength="2" id="firstName"
+      formControlName="firstName">
+      <label for="firstName">Primeiro nome</label>
+  </div>
+
+
+
+  <div class="md-form col-md-6">
+    <input type="email" name="lastName" class="form-control" [(ngModel)]="lastName" required minlength="5" id="lastName"
+      formControlName="lastName">
+      <label for="lastName">Apelido</label>
+  </div>
+
+  <select class="browser-default custom-select" name="customer"  [(ngModel)]="customer" required minlength="5" id="customer"
+  formControlName="lastName">
+    <option selected>Quem é você?</option>
+    <option value="empreendedor">Empreendedor</option>
+    <option value="cliente">Cliente</option>
+  </select>
+  
+</div>
+<div class="form-row">
+  <div class="md-form col-md-6">
+    <input type="email" name="phone" class="form-control" [(ngModel)]="phone" required minlength="5" id="phone"
+      formControlName="phone">
+      <label for="phone">Telefone</label>
+      <div *ngIf="userPhone.invalid &&  userPhone.dirty" >
+        <p class="text-danger">O número não está disponivel.</p>
+      </div>
+
+  </div>
+
+  <div class="md-form col-md-6">
+    <input type="email" name="email" class="form-control validate" [(ngModel)]="email" required minlength="5" id="email"  formControlName="email">
+    <label data-error="Errado!" data-success="certo!" for="email">Introduza seu email</label>
+
+
+  </div>
+</div>
+<div class="form-row">
+  <div class="md-form col-md-6">
+    <input type="email" name="userName" class="form-control" [(ngModel)]="userName" required minlength="5" id="username"
+      formControlName="userName">
+
+      <label for="username">Sua Marca (Nome)</label>
+
+      <div *ngIf="brand.invalid &&  brand.dirty" >
+        <p class="text-danger">A marca <span class="text-success"><strong>{{brand.value}}</strong> </span> não está disponivel.</p>
+      </div>
+      <div *ngIf="brand.valid">
+          <p class="text-success">A marca <span class="text-warning"><strong>{{brand.value}}</strong> </span> é válida.</p>
+      </div>
+      <div *ngIf="brand.pending" class=" text-danger" role="status">
+
+          <span>Verificando...</span>
+
+      </div>
+</div>
+<div class="md-form col-md-6">
+  <input type="password" name="password" class="form-control validate" [(ngModel)]="password" required minlength="8" id="password"
+    maxlength="20"  formControlName="password">
+    <label data-error="errado!" data-success="certo!" for="password">Introduza sua senha</label>
+</div>
+
+</div>
+
+
+
+
+
+
+
+                <div class="form-group">
+                  <label for="file" class="btn blue-gradient">Selecionar uma Foto</label>
+
+                  <input name="userPhotos" id="file" type="file" accept=".png, .jpg" (change)="onUpload($event)" hidden>
+                </div>
+                <div class="progress">
+                  <div [style.visibility]="(uploadPercent == 0) ? 'hidden' : 'visible'" class="progress-bar progress-bar-striped"
+                    role="progressbar" [style.width]="(uploadPercent | async) +'%'" style="background-color: #4a148c !important">
+
+
+                  </div>
+                </div>
+                <br>
+                <input #imageUser type="hidden" [value]="urlImage | async">
+                <button *ngIf="urlImage | async; else btnDisabled" type="submit" class="btn btn-lg btn-primary btn-block" style="background-color: #4a148c !important; color: #fff" [disabled]="!formRegister.valid">Criar Conta</button>
+                <ng-template #btnDisabled>
+                  <button type="submit" disabled=true class="btn btn-lg  btn-block" style="background-color: #4a148c !important; color: #fff">Criar Conta</button>
+                </ng-template>
+                <div class="form-group">
+                  <a routerLink="/entrar" class="form-control login-user">Já tenho uma conta?</a>
+                </div>
+
+              </form>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

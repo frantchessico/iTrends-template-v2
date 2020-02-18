@@ -1,0 +1,182 @@
+<div class="modal fade" id="modalBook" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+
+          {{ !this.dataApi.selectedBook.id ? 'Registar' : 'Atualizar'}}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form name="formBook" #formBook="ngForm" (ngSubmit)="onSaveBook(formBook)">
+          <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedBook.id">
+
+          <input type="hidden" name="userUid" [value]="userUid">
+          <div class="form-row">
+<div class="form-group col-md-6">
+  <div class="form-group">
+    <label for="titulo" class="col-form-label">Titulo</label>
+    <input type="text" class="form-control" name="titulo" [(ngModel)]="this.dataApi.selectedBook.titulo"
+      placeholder="Titulo">
+  </div>
+</div>
+
+<div class="form-group col-md-6">
+  <div class="form-group">
+    <label for="titulo" class="col-form-label">Telefone</label>
+    <input type="number" class="form-control phone" autocomplete="on" name="telefone" [(ngModel)]="this.dataApi.selectedBook.telefone"
+      placeholder="Telefone" max="11" min="6" required>
+  </div>
+</div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="idioma">Categoria</label>
+              <select name="categorias" class="form-control" [(ngModel)]="this.dataApi.selectedBook.categorias">
+                <option value="carros_motos">Carros & Motos</option>
+
+                <option value="casas">Casas</option>
+                <option value="celulares-tablets">Celulares & Tablets</option>
+
+                <option value="servicos">Serviços</option>
+                <option value="mobiliario">Mobíliario</option>
+                <option value="tecnologia">Tecnológia</option>
+
+
+                <option value="moda">Moda</option>
+
+              </select>
+            </div>
+
+
+
+          </div>
+<p class="text-center">Carrega fotos</p>
+
+          <div class="form-row">
+
+
+
+            <div class="form-group col-md-6">
+              <input type="text" id="urlImage" name="urlImage" class="form-control" placeholder="Link para imagem de capa" [(ngModel)]="this.dataApi.selectedBook.urlImage">
+            </div>
+
+            <div class="form-group col-md-6">
+              <input type="text" id="urlImageVerso1" name="urlImageVerso1" class="form-control" [(ngModel)]="this.dataApi.selectedBook.urlImageVerso1" placeholder="Link para imagem 1 ">
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <input type="text" id="urlImageVerso2" name="urlImageVerso2" class="form-control"  placeholder="Link para imagem 2" [(ngModel)]="this.dataApi.selectedBook.urlImageVerso2">
+              </div>
+
+              <div class="form-group col-md-6">
+                <input type="text" id="urlImageVerso3" name="urlImageVerso3" class="form-control" [(ngModel)]="this.dataApi.selectedBook.urlImageVerso3" placeholder="Link para imagem 3">
+              </div>
+
+          </div>
+
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="idioma">Provínica</label>
+              <select name="provincia" class="form-control" [(ngModel)]="this.dataApi.selectedBook.provincia">
+                <option value="Niassa">Niassa</option>
+                <option value="Cabo Delgado">Cabo Delgado</option>
+                <option value="Nampula">Nampula</option>
+                <option value="Tete">Tete</option>
+                <option value="Zambézia">Zambézia</option>
+                <option value="Manica">Manica</option>
+                <option value="Sofala">Sofala</option>
+                <option value="Gaza">Gaza</option>
+                 <option value="Inhambane">Inhambane</option>
+                <option value="Maputo">Maputo</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="precio" class="">Cidade</label>
+              <input type="text" name="cidade" class="form-control" placeholder="Cidade" [(ngModel)]="this.dataApi.selectedBook.cidade">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="autor" class="badge" style="background: #4267b2">Bairro</label>
+              <input type="text" name="bairro" class="form-control" placeholder="Qual é o seu bairro?" [(ngModel)]="this.dataApi.selectedBook.bairro">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="oferta" class="badge badge-danger">Email</label>
+              <input type="text" name="email" class="form-control" placeholder="Seu melhor email"
+               [(ngModel)]="this.dataApi.selectedBook.email">
+
+            </div>
+          </div>
+
+
+
+
+           <div class="form-row">
+
+            <div class="form-group col-md-6" *ngIf="this.dataApi.selectedBook.idioma != 'emprego'">
+              <label for="link_amazon" class="">Preço</label>
+              <input type="number" name="precio" class="form-control" placeholder="Preço" [(ngModel)]="this.dataApi.selectedBook.precio">
+            </div>
+
+            <div class="form-group col-md-6" *ngIf="this.dataApi.selectedBook.idioma == 'emprego'">
+              <label for="link_amazon" class="">Número de Vagas</label>
+              <input type="number" name="vagas" class="form-control" placeholder="Número de Vagas"
+                [(ngModel)]="this.dataApi.selectedBook.vagas">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="portada">Situação</label>
+              <select  name="situacao" class="form-control" [(ngModel)]="this.dataApi.selectedBook.situacao">
+                <option value="Negociavél">Negociavél</option>
+                <option value="Promoção">Promoção</option>
+                <option value="Liquidação">Liquidação</option>
+
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="descripcion" class="col-form-label">Descrição do seu produto</label>
+            <textarea class="form-control" name="descripcion" [(ngModel)]="this.dataApi.selectedBook.descripcion"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-secondary" #btnClose data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #6351ce !important;">Salvar</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+<router-outlet></router-outlet>
+<br><br><br><br><br><br>
+
+<div class="row justify-content-center">
+
+  <div class="col-lg-3 col-md-3 col-sm-6 position-static">
+    <div class="card card-cascade wider">
+
+
+      <div class="view view-cascade overlay">
+        <img  class="card-img-top" src="{{user.photoUrl}}" alt="Card image cap">
+
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+
+      <div class="card-body card-body-cascade text-center pb-0">
+
+
+        <h4 class="card-title" *ngIf="providerId != 'password'"><strong>{{user.name}}</strong></h4>
+          <h4 class="card-title" *ngIf="providerId != 'password'"><strong>{{user.userName}}</strong></h4>
+          {{user.name}}
+          {{user.userName}}
+        <h5 class="blue-text pb-2"><strong> {{user.email}}</strong></h5>
+
+        <p class="card-text">Sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium, totam rem aperiam. </p>
+
+        <a routerLink="/editar-profile">Editar perfil</a>
+
+
+        <a class="px-2 fa-lg li-ic"><i class="fab fa-linkedin-in"></i></a>
+
+        <a class="px-2 fa-lg tw-ic"><i class="fab fa-twitter"></i></a>
+
+        <a class="px-2 fa-lg fb-ic"><i class="fab fa-facebook-f"></i></a>
+
+
+        <div class="card-footer text-muted text-center mt-4">
+          2 days ago
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-6">
+    <section id="books" class="mt-5">
+      <div class="container my-5">
+
+
+
+          <div *ngFor="let book of books">
+           <div class="card card-cascade viewMy my-2" *ngIf="book.userUid == userUid">
+
+
+      <div class="view view-cascade overlay">
+        <img class="card-img-top" src="{{book.portada}}" alt="Card image cap">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+
+      <div class="card-body card-body-cascade text-center">
+
+
+        <h4 class="card-title"><strong>{{book.titulo}}</strong></h4>
+
+        <h6 class="font-weight-bold indigo-text py-2"><a routerLink="/detalhes/{{book.id}}">Detalhes</a></h6>
+
+
+        <p class="card-text">{{book.telefone}}
+        </p>
+        <p class="card-text badge badge-danger" *ngIf="book.situacao">{{book.situacao}}
+        </p>
+
+    <h4 class="font-weight-bold blue-text">
+      <strong>{{book.precio}}MZN</strong>
+    </h4>
+
+
+      </div>
+
+
+      <div class="card-footer text-muted text-center">
+
+              <a href="{{book.autor}}" class="nav-item ml-2 " *ngIf="book.autor != null"><i class="fa fa-3x fa-facebook-square" style="color: #4267b2"></i></a>
+
+        <a href="{{book.oferta}}"  class="nav-item ml-2" *ngIf="book.oferta != null"><i class="fa fa-3x fa-twitter-square"></i></a>
+
+        <a href="{{book.link_amazon}}" class="nav-item ml-2 text-secondary" *ngIf="book.link_amazon != null"><i class="fa fa-3x fa-instagram"></i></a>
+
+      </div>
+
+    </div>
+          </div>
+        </div>
+
+    </section>
+
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-6">
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+

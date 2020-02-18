@@ -1,0 +1,72 @@
+<section class="row mt-5 my-5 ">
+
+
+    <div class="my-5 table-responsive">
+     <div class="row justify-content-center">
+
+      <div class="col-lg-6">
+        <div class="input-group md-form form-sm form-2 pl-0">
+          <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Estou buscando por ..." aria-label="Search"
+            name="filterPosts" [(ngModel)]="filterPosts">
+          <div class="input-group-append">
+            <span class="input-group-text amber lighten-3" id="basic-text1"><i class="fas fa-search text-grey"
+                aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </div>
+     </div>
+      <table class="table table-hover my-5  container ">
+        <thead>
+          <tr>
+            <!-- <th scope="col">#</th> -->
+            <th scope="col">Titulo</th>
+            <th scope="col">Situação do anúncio</th>
+            <th scope="col">Email Público</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Telefone Público</th>
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let book of books | filter:filterPosts | orderBy: order:'desc'; index as i">
+          <tr  *ngIf="book.userUid == userUid">
+            <!-- <th scope="row">{{i.length+1}}</th> -->
+            <td>{{book.titulo}}</td>
+            <td>{{book.situacao}}</td>
+            <td>{{book.email}}</td>
+            <td>{{book.precio}}</td>
+            <td>{{book.telefone}}</td>
+            <td *ngIf="book.userUid == userUid || isAdmin == true; else noOwner">
+              <button class="btn btn-primary " data-toggle="modal" data-target="#modalBook" (click)="onPreUpdateBook(book)" style="background-color: #6351ce !important;">Atualizar</button>
+            </td>
+            <ng-template #noOwner>
+              <td>
+                <button class="btn btn-secondary" disabled="true">Atualizar</button>
+              </td>
+            </ng-template>
+            <td *ngIf="isAdmin == true; else noAdmin">
+              <button class="btn btn-danger" (click)="onDeleteBook(book.id)">Apagar</button>
+            </td>
+            <ng-template #noAdmin>
+              <td>
+                <button class="btn btn-danger" (click)="onDeleteBook(book.id)">Apagar</button>
+              </td>
+            </ng-template>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+  </section>
+  <div class="row justify-content-center">
+    <div class="fab-container">
+
+      <div class="fab-icon-holder fab bg-success" data-toggle="modal" data-target="#modalBook">
+        <i class="fa fa-5x fa-plus"></i>
+      </div>
+
+    </div>
+  </div>

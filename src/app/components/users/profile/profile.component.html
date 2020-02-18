@@ -1,0 +1,113 @@
+<div class="row justify-content-center ajust">
+  <div class="col-lg-8 col-sm-12">
+
+    <div class="container my-5">
+      <div class="fb-profile">
+          <img align="left" class="fb-image-lg img-fluid" src="https://cdn.pixabay.com/photo/2017/03/31/12/16/cover-2191228_960_720.png" alt="Profile image example"/>
+          <img align="left" class="fb-image-profile thumbnail img-thumbnail profile" src="{{user.photoUrl}}" alt="Profile image example"/>
+          <div class="fb-profile-text">
+          <h4 class="ajust-font"> {{user.name}}</h4>
+          <h4 *ngIf="!user.name" class="ajust-font"> {{fullName}}</h4>
+         </div>
+          <div class="fb-profile-text">
+
+            <div class="card-body card-body-cascade text-center">
+
+
+              <h6 class="font-weight-bold indigo-text py-2 text-center">{{brand}}</h6>
+
+              <p class="card-text">
+                {{bio}}
+              </p>
+              <div class="row justify-content-center">
+                <ul class="list-unstyled list-inline font-small">
+                  <li class="list-inline-item pr-2">
+                <a class="px-2 fa-lg li-ic"><i  class="far fa-star pr-1"></i>{{favors}}</a>
+                   </li>
+                <li class="list-inline-item pr-2">
+                <a class="px-2 fa-lg tw-ic"> <i class="far fa-heart pr-1" ></i>   {{followers}}</a>
+                </li>
+
+                <li class="list-inline-item pr-2">
+                <a class="px-2 fa-lg fb-ic"> <i  class="fas fa-heart pr-1" ></i>{{following}}</a>
+                </li>
+
+                <div class="my-2">
+                  <a routerLink="/editar-profile" class=" btn btn-sm btn-outline-secondary waves-effect" >Editar</a>
+                </div>
+                 </ul>
+              </div>
+            </div>
+
+             <strong>
+             <span>
+
+              </span>
+
+            </strong>
+              <p>{{user.bio}}</p>
+
+          </div>
+      </div>
+
+
+
+
+
+    <div class="row justify-content-center">
+
+
+
+                 <div class="col-lg-4 col-sm-12 my-2" *ngFor="let book of books | filter:filterPosts | orderBy: order:'desc'">
+                  <div class="card card-cascade wider">
+
+
+                    <div class="view view-cascade overlay">
+                      <img class="img-fluid img-profile" src="{{book.urlImage}}" alt="Card image cap">
+                      <a routerLink="/detalhe/{{book.id}}">
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+
+
+                    <div class="card-body card-body-cascade text-center pb-0">
+                      MZN {{book.precio}}
+                    </div>
+
+                  </div>
+                 </div>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="col-lg-4 col-sm-12 my-5">
+                <div class="row justify-content-center my-3">
+                  <div class="col-lg-6 col-sm-12 my-2" *ngFor="let book of books | orderBy: order:'desc'">
+                    <div *ngIf="book.userUid !== filterPosts">
+                      <div class="card card-cascade wider">
+
+
+                        <div class="view view-cascade overlay">
+                          <img class="img-fluid img-profile" src="{{book.urlImage}}" alt="Card image cap">
+                          <a routerLink="/detalhe/{{book.id}}">
+                            <div class="mask rgba-white-slight"></div>
+                          </a>
+                        </div>
+
+
+                        <div class="card-body card-body-cascade text-center pb-0">
+                          MZN {{book.precio}}
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+  </div>
+</div>
+
+
+
+

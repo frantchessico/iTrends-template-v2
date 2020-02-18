@@ -1,0 +1,59 @@
+<br><br><br><br>
+
+
+<section id="books" class="mt-5">
+  <div class="container my-5">
+    <div class="row my-5">
+      <div class="col-xs-12 col-sm-6 col-md-3 my-5" *ngFor="let book of books | filter:filterPosts | orderBy: order:'desc'">
+        <div class="card card-cascade my-2" >
+
+
+          <div class="view view-cascade overlay">
+            <img class="card-img-top" src="{{book.urlImage}}" alt="Card image cap">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+
+          <div class="card-body card-body-cascade text-center">
+
+
+            <h4 class="card-title"><strong>{{book.titulo}}</strong></h4>
+
+            <h6 class="font-weight-bold indigo-text py-2"><a routerLink="/detalhe/{{book.id}}">Detalhes</a></h6>
+
+
+            <p class="card-text">{{book.telefone}}
+            </p>
+            <p class="card-text badge badge-danger" *ngIf="book.situacao">{{book.situacao}}
+            </p>
+
+            <h4 class="font-weight-bold blue-text">
+              <strong>{{book.precio}}MZN</strong>
+            </h4>
+
+
+          </div>
+
+
+          <div class="card-footer text-muted text-center">
+
+            <a href="{{book.autor}}" class="nav-item ml-2 " *ngIf="book.autor != null"><i
+                class="fa fa-3x fa-facebook-square" style="color: #4267b2"></i></a>
+
+            <a href="{{book.oferta}}" class="nav-item ml-2" *ngIf="book.oferta != null"><i
+                class="fa fa-3x fa-twitter-square"></i></a>
+
+            <a href="{{book.link_amazon}}" class="nav-item ml-2 text-secondary" *ngIf="book.link_amazon != null"><i
+                class="fa fa-3x fa-instagram"></i></a>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-modal [userUid]="userUid"></app-modal>

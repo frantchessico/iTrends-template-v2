@@ -1,0 +1,76 @@
+<div class="row z-depth-5" >
+  <div class=" my-1 rounded " *ngFor="let book of books | filter:filterPosts | orderBy: order:'desc'">
+
+
+
+<form name="formBook" #formBook="ngForm" (ngSubmit)="onSaveBook(formBook)">
+<!-- <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedBook.id"> -->
+<input type="hidden" name="views" [(ngModel)]="views">
+<a routerLink="/detalhe/{{book.id}}" (click)="view()">
+
+
+<h1>{{user.userName}}</h1>
+
+<div class="view overlay product-img">
+  <img src="{{book.urlImage}}" class="img-fluid" alt="smaple image">
+  <!-- <span>MZN{{book.precio}}</span> -->
+  <div class="mask flex-center rgba-white-strong">
+
+    <a routerLink="/detalhe/{{book.id}}" class="dark-grey-text">
+    <div class="card align-items-center viewMy">
+
+      <div class="view overlay">
+
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <div class="card-body text-center">
+    <strong>
+      <a href="" class="dark-grey-text">
+        <span class="badge badge-warning" *ngIf="book.situacao">{{book.situacao}}
+        </span>
+      </a>
+    </strong>
+
+
+        <h6 class="blue-text">
+          <strong>
+            <a href="" class="dark-grey-text">
+              <span class="badge danger-color" *ngIf="book.situacao">MZN {{book.precio}}
+              </span>
+            </a>
+          </strong>
+        </h6>
+        <span>{{book.titulo}}</span>
+
+      </div>
+
+    </div>
+    </a>
+  </div>
+  <div class="row justify-content-center card precio-display">
+
+<div class="col-sm-12">
+<h6 class="text-center">
+
+
+
+
+
+    <a href="" class="dark-grey-text my-5">
+      <span class="badge danger-color" *ngIf="book.situacao">MZN {{book.precio}}
+      </span>
+    </a>
+
+
+
+</h6>
+</div>
+  </div>
+</div>
+</a>
+</form>
+  </div>
+</div>

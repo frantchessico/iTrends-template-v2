@@ -1,0 +1,63 @@
+
+<section id="login" class="">
+<div class="container my-5">
+  <app-icon class="text-center"></app-icon>
+    <div class="row">
+        <div class="col-lg-6 col-sm-6 col-md-4 mx-auto">
+          <app-argument></app-argument>
+        </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+        <div class="card_login">
+          <div class="card">
+            <div class="card-body text-center">
+              <div class="form-group ">
+                <button class=" btn-facebook mr-2" (click)="onLoginFacebook()">
+                  <span class="s-icon fa fa-facebook"></span>
+                </button>
+                <button class="btn-google" (click)="onLoginGoogle()">
+                  <span class="s-icon fa fa-google"></span>
+
+                </button>
+              </div>
+              <form #formLogin="ngForm" (submit)="onLogin()">
+
+                <div class="alert alert-danger" role="alert" *ngIf="">
+                  Something is wrong!
+                </div>
+                <div class="md-form">
+                  <input [(ngModel)]="email" type="email" id="email" name="email" class="form-control validate"
+                    required>
+                    <label data-error="Errado!" data-success="certo!" for="email">Introduza seu email</label>
+                </div>
+
+                <div class="md-form">
+                  <app-spiner *ngIf="showSpiner"></app-spiner>
+                </div>
+                <div class="md-form">
+                  <input [(ngModel)]="password" type="password" id="password" name="password" class="form-control"
+                    required>
+                    <label data-error="Errado!" data-success="certo!" for="password">Introduza sua senha</label>
+                </div>
+                <button type="submit" class="btn btn-lg btn-block" style="background-color: #4a148c !important; color: #fff" [disabled]="!formLogin.valid">Entrar</button>
+                <div class="form-group">
+                  <a routerLink="/criar-conta" class="form-control login-user">Não tem conta?</a>
+                  <a class="form-control login-user" data-toggle="modal" data-target="#modalSubscriptionForm">Perdi minha senha!</a>
+                </div>
+
+              </form>
+
+              <div class="form-group">
+                <a routerLink="/" class="form-control login-user">Home</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+</div>
+</section>
+<app-resetpassword></app-resetpassword>
+
+<app-footer></app-footer>

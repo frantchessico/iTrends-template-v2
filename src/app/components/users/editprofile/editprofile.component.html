@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<h1 class="center">Profile Edit</h1>
+<form (ngSubmit)="onSaveUser(profileForm.value)" [formGroup]="profileForm">
+  
+      <div class="label bottom">
+        <p>Change</p>
+        <img [src]="currentImage" (click)="inputImageProfile.click()" />
+        <input hidden type="file" #inputImageProfile formControlName="photoURL"
+          (change)="handleImage(($event?.target?.files)[0])" />
+      </div>
+
+    
+        
+        <input matInput placeholder="Name" formControlName="displayName">
+        <input matInput placeholder="phoneNumber" formControlName="phoneNumber">
+      
+        <input matInput placeholder="Email" formControlName="email">zz
+      
+      <div class="mat-dialog-actions">
+        <input type="submit" class="mat-flat-button" value="Save" />
+      </div>
+   
+</form>

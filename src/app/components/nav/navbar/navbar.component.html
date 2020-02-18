@@ -1,0 +1,280 @@
+<!-- <router-outlet></router-outlet>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-white" >
+<div class="container">
+  <a class="navbar-brand myicon  text-dark" routerLink="/">
+    <img class="logo" src="assets/logo.png" alt="iTrends_logo"> iTrends
+  </a>
+
+
+
+
+
+
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="text-dark navbar-toggler-icon small-device"></span>
+      <a routerLink="/profile">
+        <img *ngIf="isLogged" src="{{user.photoUrl}}" class="rounded-circle z-depth-5 img-thumbnail avatar" alt="avatar image" height="35">
+       </a>
+
+    </button>
+
+    <div class="collapse navbar-collapse ml-4" id="mainNavbar">
+      <ul class="navbar-nav mr-auto text-dark small-device">
+
+
+        <li class="nav-item dropdown ">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/carros-&-motos">Carros & Motos
+          </a>
+
+        </li>
+
+
+
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/casas">
+
+          Imóveis
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/tecnologia">
+
+            Tecnológia</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/literatura">
+Literatura
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/celulares-tablets">
+            Celulares & Tablets
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/mobiliario">
+            Mobiliários
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/moda">
+
+            Moda
+          </a>
+        </li>
+
+        <li class="nav-item dropdown small-device">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/servicos">
+            Serviços
+          </a>
+        </li>
+
+
+
+      </ul>
+
+
+
+
+      <ul class="navbar-nav ml-auto small-device">
+
+        <li class="nav-item avatar">
+
+           <strong *ngFor="let userRouter of usersDatas">
+
+           <strong *ngIf="userRouter.uid === userUid">
+               <a routerLink="/{{userRouter.brand}}">
+               <img   src="{{user.photoUrl}}" class="rounded-circle z-depth-5 img-thumbnail avatar" alt="avatar image" height="35">
+           </a>
+           </strong>
+           </strong>
+
+        </li>
+        <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link text-dark " routerLink="/posts">Meus Posts</a>
+        </li>
+
+        <li class="nav-item" *ngIf="!isLogged">
+          <a class="nav-link navbar-brand" routerLink="/criar-conta">Criar conta
+          </a>
+        </li>
+
+
+
+
+        <li class="nav-item" *ngIf="!isLogged">
+          <a class="nav-link navbar-brand" routerLink="/entrar">Entrar
+          </a>
+        </li>
+
+
+
+
+
+
+        <li class="nav-item" *ngIf="isLogged">
+          <a href="#" class="nav-link navbar-brand text-dark" (click)="onLogout()">Sair
+          </a>
+        </li>
+
+
+
+      </ul>
+    </div>
+</div>
+</nav>
+
+
+
+
+ -->
+
+
+ <router-outlet></router-outlet>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-white" >
+<div class="container">
+  <a class="navbar-brand myicon hidens text-dark" routerLink="/">
+    <img class="logo" src="assets/logo.png" alt="iTrends_logo"> iTrends
+  </a>
+
+  <a class="navbar-brand myicon buttons text-dark" routerLink="/">
+  iTrends
+  </a>
+
+
+
+
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="text-dark navbar-toggler-icon small-device"></span>
+      <a routerLink="/profile">
+        <img *ngIf="isLogged" src="{{user.photoUrl}}" class="rounded-circle z-depth-5 img-thumbnail avatar" alt="avatar image" height="35">
+       </a>
+
+    </button>
+
+    <div class="collapse navbar-collapse ml-4" id="mainNavbar">
+      <ul class="navbar-nav mr-auto text-dark small-device">
+
+
+        <li class="nav-item dropdown ">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/carros-&-motos">Carros & Motos
+          </a>
+
+        </li>
+
+
+
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/casas">
+
+          Imóveis
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/tecnologia">
+
+            Tecnológia</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/literatura">
+Literatura
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/celulares-tablets">
+            Celulares & Tablets
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/mobiliario">
+            Mobiliários
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/moda">
+
+            Moda
+          </a>
+        </li>
+
+        <li class="nav-item dropdown small-device">
+          <a class="nav-link text-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLink="/servicos">
+            Serviços
+          </a>
+        </li>
+
+
+
+      </ul>
+
+
+
+
+      <ul class="navbar-nav ml-auto small-device">
+
+        <li class="nav-item avatar">
+
+           <a routerLink="/profile">
+            <img *ngIf="isLogged" src="{{user.photoUrl}}" class="rounded-circle z-depth-5 img-thumbnail avatar" alt="avatar image" height="35">
+           </a>
+
+        </li>
+        <li class="nav-item" *ngIf="isLogged">
+          <a class="nav-link text-dark " routerLink="/posts">Meus Posts</a>
+        </li>
+
+        <li class="nav-item" *ngIf="!isLogged">
+          <a class="nav-link navbar-brand" routerLink="/criar-conta">Criar conta
+          </a>
+        </li>
+
+
+
+
+        <li class="nav-item" *ngIf="!isLogged">
+          <a class="nav-link navbar-brand" routerLink="/entrar">Entrar
+          </a>
+        </li>
+
+
+
+
+
+
+        <li class="nav-item" *ngIf="isLogged">
+          <a href="#" class="nav-link navbar-brand text-dark" (click)="onLogout()">Sair
+          </a>
+        </li>
+
+
+
+      </ul>
+    </div>
+</div>
+</nav>
+
+
+
+
